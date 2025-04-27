@@ -1,0 +1,34 @@
+Q1) what is the difference between IEnummerbale and IQuerble
+Ans: IQuerable and IEnumerable are both Interface in c# used for LINQ (Language Integrated Query) operations, 
+but they differ in their intended use and performance characteristics.
+IEnumerable is designed for working with in-memory collections, while IQuerable is designed for querying data sources that are not entirely in memory, such database.
+
+key difference:
+| features          | Ienumerable                                            | IQuerbale                                             |
+|-------------------|--------------------------------------------------------|-------------------------------------------------------|
+| Data Source       |a)Prmarily for in-memory collections(lists,array,etc    |a)Primarily for quering data sources like database.    |
+| Execution         |b)Operations are executed immediately upon calling the  |b)Operations are deferred until enumeration are        |
+|                   | LINQ method                                            | executed on the server side (eg database)             |
+| Query composition |c)Supports simple LINQ methods, but not as well as for |c)Supports complex query building using chained LINQ    |
+|                   | complex query building.                                |  methods and the entire query is translated and       |
+|                   |                                                        |  executed at once.                                    |
+| Performance       |d)Suitable for smaller datasets and simple operations.  |d)Better performance with large datasets and complex   | 
+|                   |                                                        |  queries by leveraging server-side processing.        |
+| LINQ Providers    |e)Requires a specific LINQ providers to handle the query|e)Relies on an implementation of IQueryProvider to     |
+|                   | (e.g. LINQ to objects)                                 |  execute the server-side data source.                 |
+|-------------------|--------------------------------------------------------|-------------------------------------------------------|
+
+Namespace:
+IEnumerable: It is defined in the System.Collections namespace.
+IQueryable: It is defined in the System.Linq namespace.
+
+In essence:
+ -Use IEnumerable when you have data in memory and you need to perform simple filtering, sorting or other operations on that data directly.
+ -Use IQuerable when you're querying a data source (like a database) and you need to leverage server-side processing for efficiency especially with large or complex queries.
+
+Example to Understand the Differences Between IEnumerable and IQueryable in C# :
+  In this demo, we will create a Console Application to retrieve the data from the SQL Server database using the Entity Framework Database First approach. We are going to fetch the following Student information from the Student table.
+
+
+
+
